@@ -7,7 +7,7 @@ export default function CreateLibros() {
     const [leido, setLeido] = useState(false);
 
     async function crearLibro(e) {
-        e.preventDefault(); // Asegúrate de usar correctamente este método.
+        e.preventDefault();
         try {
             const response = await fetch("/api/libros", {
                 method: "POST",
@@ -21,9 +21,9 @@ export default function CreateLibros() {
 
             if (response.ok) {
                 alert("Libro añadido exitosamente.");
-                setTitulo(""); // Limpia el campo de título.
-                setAutor("");  // Limpia el campo de autor.
-                setLeido(false); // Reinicia el checkbox.
+                setTitulo("");
+                setAutor("");
+                setLeido(false);
             } else {
                 const error = await response.json();
                 alert(`Hubo un error al añadir el libro: ${error.message}`);
